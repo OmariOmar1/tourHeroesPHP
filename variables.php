@@ -76,11 +76,11 @@ echo $y; // outputs 15
 $x = 5;
 $y = 10;
 
-function myTest() {
+function myTest33() {
     $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
 }
 
-myTest();
+myTest33();
 echo $y; // outputs 15
 ?>
 
