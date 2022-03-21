@@ -11,10 +11,9 @@ $t = date("H");
 if ($t <"20"){
     echo "have a good day!";
 }
-?>
-<!--if ..else-->
 
-<?php
+//<!--if ..else-->
+
 $t = date("H");
 
 if ($t < "20") {
@@ -22,9 +21,9 @@ if ($t < "20") {
 } else {
     echo "Have a good night!";
 }
-?>
-<!--if..elseif..else -->
-<?php
+
+//<!--if..elseif..else -->
+
 $t = date("H");
 
 if ($t < "10") {
@@ -34,5 +33,4 @@ if ($t < "10") {
 } else {
     echo "Have a good night!";
 }
-?>
 
