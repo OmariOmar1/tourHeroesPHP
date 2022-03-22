@@ -2,29 +2,21 @@
 class Fruit {
     public $name;
     public $color;
+    public $weight;
 
-    function __construct($name, $color) {
-        echo "<br>just got in $name fruit<br>";
-        $this->name = $name;
-        $this->color = $color;
+    function set_name($n) {  // a public function (default)
+        $this->name = $n;
     }
-    function get_name() {
-        return $this->name;
+    protected function set_color($n) { // a protected function
+        $this->color = $n;
     }
-    function get_color() {
-        return $this->color;
-    }
-    function __destruct()
-    {
-        // TODO: Implement __destruct() method.
-        echo "<br>leaving $this->name Fruit <br>";
+    private function set_weight($n) { // a private function
+        $this->weight = $n;
     }
 }
 
-$banana = new Fruit("banana","yellow");
-$apple = new Fruit("Apple", "red");
-echo $apple->get_name();
-echo "<br>";
-echo $apple->get_color();
-
-
+$mango = new Fruit();
+$mango->set_name('Mango'); // OK
+//$mango->set_color('Yellow'); --> ERROR
+//$mango->set_weight('300'); --> ERROR
+?>
