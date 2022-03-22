@@ -5,14 +5,15 @@ abstract class Car {
     public function __construct($name) {
         $this->name = $name;
     }
-    abstract public function intro()  
+    abstract public function intro();
 }
 
 // Child classes
 class Audi extends Car {
-    public function intro()  {
-        return "Choose German quality! I'm an $this->name!";
-    }
+   public function intro()
+   {
+       // TODO: Implement intro() method.
+   }
 }
 
 class Volvo extends Car {
