@@ -1,24 +1,27 @@
 <?php
 class Fruit {
-    private $name;
-    private $color;
-    private $weight;
-
-    public function set_name($n) {  // a public function (default)
-        $this->name = $n;
+    public $name;
+    public $color;
+    public function __construct($name, $color) {
+        $this->name = $name;
+        $this->color = $color;
     }
-    protected function set_color($n) { // a protected function
-        $this->color = $n;
+    public function intro() {
+        echo "The fruit is {$this->name} and the color is {$this->color}.";
     }
-    private function set_weight($n) { // a private function
-        $this->weight = $n;
-    }
-
 }
 
-$mango = new Fruit();
-$mango->set_name('Mango'); // OK
-//$mango->set_color('Yellow'); --> ERROR
-//$mango->set_weight('300'); --> ERROR
-echo $name;
+class Strawberry extends Fruit {
+    public $weight;
+    public function __construct($weight) {
+    parent::__construct();
+        $this->weight = $weight;
+    }
+    public function intro() {
+        echo "The fruit is {$this->name}, the color is {$this->color}, and the weight is {$this->weight} gram.";
+    }
+}
+
+$strawberry = new Strawberry("Strawberry", "red", 50);
+$strawberry->intro();
 ?>
