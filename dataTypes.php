@@ -37,7 +37,7 @@ var_dump($cars);
 
 <!--PHP Object-->
 <?php
-class Car {
+class vehicle {
     public $color;
     public $model;
     public function __construct($color, $model) {
@@ -49,10 +49,10 @@ class Car {
     }
 }
 
-$myCar = new Car("black", "Volvo");
+$myCar = new vehicle("black", "Volvo");
 echo $myCar -> message();
 echo "<br>";
-$myCar = new Car("red", "Toyota");
+$myCar = new vehicle("red", "Toyota");
 echo $myCar -> message();
 ?>
 <!--null values-->
