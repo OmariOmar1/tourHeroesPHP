@@ -40,7 +40,32 @@ $url = filter_var($url, FILTER_SANITIZE_URL);
 
 // Validate url
 if (!filter_var($url, FILTER_VALIDATE_URL) === false) {
-    echo("$url is a valid URL");
+    echo("$url is a valid URL<br>");
 } else {
     echo("$url is not a valid URL");
 }
+?>
+<!--advanced filters -->
+<?php
+$int = 122;
+$min = 1;
+$max = 200;
+
+if (filter_var($int, FILTER_VALIDATE_INT, array("options" => array("min_range"=>$min, "max_range"=>$max))) === false) {
+    echo("Variable value is not within the legal range<br>");
+} else {
+    echo("Variable value is within the legal range<br>");
+}
+//filter queryString url
+$url = "https://www.facebook.com";
+
+if (!filter_var($url, FILTER_VALIDATE_URL, FILTER_FLAG_QUERY_REQUIRED) === false) {
+    echo("$url is a valid URL with a query string<br>");
+} else {
+    echo("$url is not a valid URL with a query string<br>");
+}
+//filer based on ASCII value
+$str = "<h1>Hello WorldÆØÅ!</h1><br>";
+
+$newstr = filter_var($str, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
+echo $newstr;
