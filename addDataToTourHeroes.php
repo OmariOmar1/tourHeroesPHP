@@ -1,11 +1,10 @@
 <?php
 include_once 'connectToDB.php';
 if (isset($_POST['submit'])){
-    $userName = $_POST['userName'];
-    $email=$_POST['email'];
-    $password=$_POST['password'];
-    $sql = "INSERT INTO Heroes (HeroFirstName,HeroLastName,HeroDescription)
-     VALUES ('$userName','$email','$password')";
+    $firstName = $_POST['userName'];
+    $description=$_POST['description'];
+    $sql = "INSERT INTO Heroes (HeroFirstName,HeroDescription)
+     VALUES ('$firstName','$description')";
     if (mysqli_query($conn, $sql)) {
         echo "New record has been added successfully !<br> <a href='tourHeroesData.php'>Go back</a> ";
 }

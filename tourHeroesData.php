@@ -26,8 +26,7 @@ $resultscheck = mysqli_num_rows($results);
     <tr>
         <th>Hero Id</th>
         <th>Hero First Name</th>
-        <th>Hero Last NameName</th>
-        <th>Hero Password</th>
+        <th>Hero description</th>
     </tr>
     <?php if ($resultscheck > 0) {
         while ($row = mysqli_fetch_assoc($results)) {
@@ -35,8 +34,6 @@ $resultscheck = mysqli_num_rows($results);
                 $row["HeroId"] .
                 "</td><td>" .
                 $row["HeroFirstName"] .
-                "</td><td>" .
-                $row["HeroLastName"] .
                 "</td><td>" .
                 $row["HeroDescription"] .
                 "</td><tr>";
@@ -59,12 +56,8 @@ $resultscheck = mysqli_num_rows($results);
                         <input type="text" name="userName" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>LastName</label>
-                        <input type="text" name="email" class="form-control">
-                    </div>
-                    <div class="form-group">
                         <label>Description</label>
-                        <input type="mobile" name="password" multiple class="form-control">
+                        <input type="mobile" name="description" multiple class="form-control">
                     </div>
                     <input type="submit" class="btn btn-primary" name="submit" value="Submit">
                 </form>
