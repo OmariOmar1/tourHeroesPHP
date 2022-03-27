@@ -66,4 +66,13 @@ $resultscheck = mysqli_num_rows($results);
     </div>
 </div>
 
+<h1>Data as json</h1>
+<?php
 
+mysqli_data_seek($results,0);
+while($row = mysqli_fetch_assoc($results)){
+
+//print_r($row);
+echo json_encode($row)."<br>";
+}
+?>
