@@ -9,4 +9,4 @@ $dbPassword="";
 $dbName= "tour_heroes";
 
 //connection
-$conn = mysqli_connect($dbServerName,$dbUserName,$dbPassword,$dbName);
+$connectionToDatabase = mysqli_connect($dbServerName,$dbUserName,$dbPassword,$dbName)or die("Error " . mysqli_error($connectionToDatabase));

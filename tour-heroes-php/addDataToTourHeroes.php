@@ -5,7 +5,7 @@ if (isset($_POST['submit'])){
     $description=$_POST['description'];
     $sql = "INSERT INTO Heroes (HeroFirstName,HeroDescription)
      VALUES ('$firstName','$description')";
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_query($connectionToDatabase, $sql)) {
         echo "New record has been added successfully !<br> <a href='tourHeroesData.php'>Go back</a> ";
 }
     else{

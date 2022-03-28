@@ -3,7 +3,7 @@
 include_once "connectToDB.php";
 
 $sql = "select * from Heroes;";
-$results = mysqli_query($conn, $sql);
+$results = mysqli_query($connectionToDatabase, $sql);
 $resultscheck = mysqli_num_rows($results);
 ?>
 <!DOCTYPE html>
