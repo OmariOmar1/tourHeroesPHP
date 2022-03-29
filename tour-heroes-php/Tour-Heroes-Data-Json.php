@@ -1,5 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 include_once 'connectToDB.php';//connection to tour-heroes database
 
 $sql = "select * from Heroes;";
@@ -11,4 +12,8 @@ $heroesArray = mysqli_fetch_all($results, MYSQLI_ASSOC);
 $connectionToDatabase->close();
 
 header('Content-type: application/json');
-echo json_encode($heroesArray);
+echo json_encode($heroesArray);}
+
+if ($_SERVER['REQUEST_METHOD']=='POST'){
+    echo "welcome";
+}
