@@ -1,14 +1,18 @@
 <?php
-include_once 'connectToDB.php';
-if (isset($_POST['submit'])){
-    $firstName = $_POST['userName'];
-    $description=$_POST['description'];
-    $sql = "INSERT INTO Heroes (HeroFirstName,HeroDescription)
-     VALUES ('$firstName','$description')";
-    if (mysqli_query($connectionToDatabase, $sql)) {
-        echo "New record has been added successfully !<br> <a href='tourHeroesData.php'>Go back</a> ";
+include 'connectToDB.php';
+// Escape user inputs for security
+json_decode($_REQUEST['HeroFirstName']);
+echo $_REQUEST['HeroFirstName'];
+$first_name = mysqli_real_escape_string($connectionToDatabase,$_REQUEST['HeroFirstName']);
+
+// Attempt insert query execution
+$sql = "INSERT INTO Heroes (HeroFirstName) VALUES ('$first_name')";
+
+if(mysqli_query($connectionToDatabase, $sql)){
+    echo "Records added successfully.";
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($connectionToDatabase);
 }
-    else{
-        echo "something went wrong please try again later..";
-    }
-}
+
+// Close connection
+mysqli_close($connectionToDatabase);
