@@ -1,5 +1,5 @@
 <?php
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: http://localhost:4200");
 include_once 'connectToDB.php';//connection to tour-heroes database
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 $sql = "select * from Heroes;";
@@ -14,6 +14,7 @@ $connectionToDatabase->close();
 
 header('Content-type: application/json');
 echo json_encode($heroesArray);}
+
 
 if ($_SERVER['REQUEST_METHOD']=='POST'){
     echo "post";

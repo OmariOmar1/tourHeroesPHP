@@ -28,7 +28,8 @@ $resultscheck = mysqli_num_rows($results);
         <th>Hero First Name</th>
         <th>Hero description</th>
     </tr>
-    <?php if ($resultscheck > 0) {
+    <?php
+    if ($resultscheck > 0) {
         while ($row = mysqli_fetch_assoc($results)) {
             echo "<tr scope='row'><td>" .
                 $row["HeroId"] .
