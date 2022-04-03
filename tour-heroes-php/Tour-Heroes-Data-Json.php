@@ -14,8 +14,3 @@ $connectionToDatabase->close();
 
 header('Content-type: application/json');
 echo json_encode($heroesArray);}
-
-
-if ($_SERVER['REQUEST_METHOD']=='POST'){
-    echo "post";
-}
