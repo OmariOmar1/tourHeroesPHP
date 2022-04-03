@@ -1,6 +1,6 @@
 <?php
 //including connection file
-include_once "connectToDB.php";
+include_once "db-connect.php";
 
 $sql = "select * from Heroes;";
 $results = mysqli_query($connectionToDatabase, $sql);
@@ -51,7 +51,7 @@ $resultscheck = mysqli_num_rows($results);
                     <h2>Heroes Form</h2>
                 </div>
                 <p>Please fill this form and submit to add Hero record to the database.</p>
-                <form action="addDataToTourHeroes.php" method="post">
+                <form action="add-hero.php" method="post">
                     <div class="form-group">
                         <label>First Name</label>
                         <input type="text" name="userName" class="form-control">
