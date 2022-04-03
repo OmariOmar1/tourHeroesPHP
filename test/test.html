@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    const Http = new XMLHttpRequest();
+    const url='/m/tickerchart/uws-mobile?user_name=ehab';
+    //Http.open("GET", url);
+    //Http.open("GET", url);
+    Http.open("POST", url);
+    Http.send();
+
+    Http.onreadystatechange = (e) => {
+        debugger
+        console.log(Http.responseText)
+    }
+
+</script>
