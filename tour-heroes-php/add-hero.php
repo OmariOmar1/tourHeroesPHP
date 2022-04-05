@@ -1,10 +1,10 @@
 <?php
 include 'db-connect.php';
 $data = json_decode(file_get_contents('php://input'), true);
-$first_name = mysqli_real_escape_string($connectionToDatabase,$data['HeroFirstName']);
-
+$first_name = stripcslashes(mysqli_real_escape_string($connectionToDatabase,$data['HeroFirstName']));
+$heroDescription = stripcslashes(mysqli_escape_string($connectionToDatabase,$data['HeroDescription']));
 // Attempt insert query execution
-$sql = "INSERT INTO Heroes (HeroFirstName) VALUES ('$first_name')";
+$sql = "INSERT INTO Heroes (HeroFirstName,HeroDescription) VALUES ('$first_name','$heroDescription')";
 
 if(mysqli_query($connectionToDatabase, $sql)){
     echo true;
