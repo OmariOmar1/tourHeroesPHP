@@ -1,5 +1,6 @@
 <?php
 include 'db-connect.php';
+include 'cors.php';
 $data = json_decode(file_get_contents('php://input'), true);
 $first_name = stripcslashes(mysqli_real_escape_string($connectionToDatabase,$data['HeroFirstName']));
 $heroDescription = stripcslashes(mysqli_escape_string($connectionToDatabase,$data['HeroDescription']));

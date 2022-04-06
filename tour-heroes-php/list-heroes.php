@@ -1,6 +1,7 @@
 <?php
-header("Access-Control-Allow-Origin: http://localhost:4200");
 include_once 'db-connect.php';//connection to tour-heroes database
+include 'cors.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 $sql = "select * from Heroes;";
     if (!empty($connectionToDatabase)) {
