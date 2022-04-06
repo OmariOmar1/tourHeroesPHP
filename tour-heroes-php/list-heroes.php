@@ -10,7 +10,6 @@ $sql = "select * from Heroes;";
 
 //$heroesArray =$results ->fetch_all(MYSQLI_ASSOC);
 $heroesArray = mysqli_fetch_all($results, MYSQLI_ASSOC);
-
 $connectionToDatabase->close();
 
 header('Content-type: application/json');

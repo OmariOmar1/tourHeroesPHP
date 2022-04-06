@@ -16,7 +16,6 @@ $hero = mysqli_fetch_assoc($results);
 //header('Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT');
 //header('Access-Control-Max-Age: 600');
 
-header('Access-Control-Allow-Origin:*');
 header('Content-Type: application/json; charset=utf-8');
 echo json_encode($hero);
 
