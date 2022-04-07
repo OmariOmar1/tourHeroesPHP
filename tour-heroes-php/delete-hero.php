@@ -1,10 +1,10 @@
 <?php
-include_once 'db-connect.php';
+include_once 'database-connection.php';
 include 'cors.php';
 
 $selectedHero = file_get_contents('php://input');
-$sql = "Delete from Heroes WHERE HeroId =$selectedHero;";
-
-if(mysqli_query($connectionToDatabase, $sql)){
-    echo "true";
-}
+$sql = $pdo->prepare("Delete from Heroes WHERE HeroId =?;");
+if ($sql->execute([$selectedHero])){
+    echo true;
+}else
+    echo false;

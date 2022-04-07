@@ -3,19 +3,15 @@
 //headers
 
 //connect to database
-include_once 'db-connect.php';
+include_once 'database-connection.php';
 include 'cors.php';
 
 $selectedHero = $_GET['HeroId'];
-$sql = "select * from Heroes WHERE HeroId =$selectedHero;";
-$results = mysqli_query($connectionToDatabase, $sql);
-$hero = mysqli_fetch_assoc($results);
 
-//header('Access-Control-Allow-Origin: *');
-//header('Access-Control-Allow-Headers: Content-Type, X-Requested-With');
-//header('Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT');
-//header('Access-Control-Max-Age: 600');
+$sql =$pdo->prepare("select * from Heroes WHERE HeroId =?;");
+$sql->execute([$selectedHero]);
+$hero = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 header('Content-Type: application/json; charset=utf-8');
-echo json_encode($hero);
+echo json_encode($hero[0]);
 

@@ -1,17 +1,22 @@
 <?php
-include 'db-connect.php';
+include 'database-connection.php';
 include 'cors.php';
 $data = json_decode(file_get_contents('php://input'), true);
-$first_name = stripcslashes(mysqli_real_escape_string($connectionToDatabase,$data['HeroFirstName']));
-$heroDescription = stripcslashes(mysqli_escape_string($connectionToDatabase,$data['HeroDescription']));
+$first_name = $data['HeroFirstName'];
+$heroDescription = $data['HeroDescription'];
 // Attempt insert query execution
-$sql = "INSERT INTO Heroes (HeroFirstName,HeroDescription) VALUES ('$first_name','$heroDescription')";
+$userCheck = $pdo->prepare("SELECT * FROM HEROES where HeroFirstName=?");
+$userCheck->execute([$first_name]);
+$user=$userCheck->fetch();
+if (!$user) {
+    $sql = $pdo->prepare("INSERT INTO Heroes (HeroFirstName,HeroDescription) VALUES (?,?)");
 
-if(mysqli_query($connectionToDatabase, $sql)){
-    echo true;
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($connectionToDatabase);
+
+    if ($sql->execute([$first_name, $heroDescription])) {
+        echo true;
+    } else {
+        echo "ERROR: not able to execute $sql. ";
+    }
 }
-
-// Close connection
-mysqli_close($connectionToDatabase);
+else
+    echo "username already exists";
